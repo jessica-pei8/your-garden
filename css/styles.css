@@ -1,0 +1,462 @@
+* {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f5ed;
+      color: #334236;
+    }
+
+    .container {
+      width: min(1150px, 92%);
+      margin: 0 auto;
+      padding: 55px 0;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 46px;
+      letter-spacing: -1px;
+    }
+
+    .subtitle {
+      margin-top: 10px;
+      color: #7b8578;
+      font-size: 17px;
+    }
+
+    /* =========================
+       SEARCH
+    ========================= */
+
+    .search-box {
+      display: flex;
+      max-width: 680px;
+      margin: 30px auto 12px;
+      gap: 10px;
+    }
+
+    input {
+      flex: 1;
+      min-width: 0;
+      padding: 15px 18px;
+      border: 2px solid #d8ddd2;
+      border-radius: 12px;
+      background: white;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #8da284;
+    }
+
+    button {
+      border: none;
+      border-radius: 12px;
+      background: #78986f;
+      color: white;
+      padding: 0 23px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    button:hover {
+      background: #67865f;
+      transform: translateY(-1px);
+    }
+
+    .error {
+      min-height: 22px;
+      margin-top: 10px;
+      text-align: center;
+      color: #b65f65;
+      font-size: 14px;
+    }
+
+    /* =========================
+       GARDEN CARD
+    ========================= */
+
+    .garden-card {
+      background: #fffdf8;
+      border: 1px solid #e5e2d8;
+      border-radius: 22px;
+      padding: 30px;
+      box-shadow: 0 10px 35px rgba(65, 75, 58, 0.08);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* =========================
+       PROFILE
+    ========================= */
+
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 22px;
+    }
+
+    .avatar {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      border: 2px solid #e2e4da;
+    }
+
+    .profile h2 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .profile p {
+      margin: 5px 0 0;
+      color: #899287;
+      font-size: 14px;
+    }
+
+    /* =========================
+       STATS
+    ========================= */
+
+    .stats {
+      display: flex;
+      gap: 40px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 25px;
+      color: #334236;
+    }
+
+    .stat span {
+      color: #8a9388;
+      font-size: 13px;
+    }
+
+    /* =========================
+       PLANT SELECTOR
+    ========================= */
+
+    .section-label {
+      margin-bottom: 10px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .plant-options {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .plant-option {
+      padding: 10px 15px;
+      border: 1px solid #dfe2d8;
+      border-radius: 10px;
+      background: white;
+      color: #556052;
+      cursor: pointer;
+      font-size: 14px;
+      transition: 0.15s ease;
+    }
+
+    .plant-option:hover {
+      border-color: #aab6a3;
+    }
+
+    .plant-option.active {
+      background: #e8efe4;
+      border-color: #8fa38a;
+      color: #365038;
+      font-weight: 700;
+    }
+
+    /* =========================
+       CALENDAR
+    ========================= */
+
+    .garden-wrapper {
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+
+    .calendar {
+      min-width: 850px;
+    }
+
+    .months {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      margin-left: 35px;
+      margin-bottom: 8px;
+      color: #899287;
+      font-size: 12px;
+    }
+
+    .calendar-body {
+      display: flex;
+      gap: 8px;
+    }
+
+    .weekdays {
+      width: 27px;
+      flex-shrink: 0;
+      display: grid;
+      grid-template-rows: repeat(7, 14px);
+      gap: 4px;
+      color: #899287;
+      font-size: 10px;
+      align-items: center;
+    }
+
+    .weekday {
+      height: 14px;
+      line-height: 14px;
+    }
+
+    .garden {
+      display: grid;
+      grid-template-rows: repeat(7, 14px);
+      grid-auto-flow: column;
+      grid-auto-columns: 14px;
+      gap: 4px;
+      flex: 1;
+    }
+
+    /* =========================
+       CONTRIBUTION CELLS
+    ========================= */
+
+    .day {
+      width: 14px;
+      height: 14px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: transform 0.12s ease;
+      position: relative;
+    }
+
+    .day:hover {
+      transform: scale(1.55);
+      z-index: 5;
+    }
+
+    /* =========================
+       FLOWER COLORS
+    ========================= */
+
+    .flowers .level-0 {
+      background: #e6e4da;
+    }
+
+    .flowers .level-1 {
+      background: #b8d8a8;
+    }
+
+    .flowers .level-2 {
+      background: #8ebe88;
+    }
+
+    .flowers .level-3 {
+      background: #73aa6d;
+    }
+
+    .flowers .level-4 {
+      background: #e6adc0;
+    }
+
+    .flowers .level-5 {
+      background: #cf6e96;
+    }
+
+    /* =========================
+       SUCCULENT COLORS
+    ========================= */
+
+    .succulents .level-0 {
+      background: #e4e4db;
+    }
+
+    .succulents .level-1 {
+      background: #c8d6b8;
+    }
+
+    .succulents .level-2 {
+      background: #a9c198;
+    }
+
+    .succulents .level-3 {
+      background: #87aa79;
+    }
+
+    .succulents .level-4 {
+      background: #6f966b;
+    }
+
+    .succulents .level-5 {
+      background: #527a58;
+    }
+
+    /* =========================
+       CROP COLORS
+    ========================= */
+
+    .crops .level-0 {
+      background: #e7e1d2;
+    }
+
+    .crops .level-1 {
+      background: #d6dfb4;
+    }
+
+    .crops .level-2 {
+      background: #b9ce8b;
+    }
+
+    .crops .level-3 {
+      background: #94b967;
+    }
+
+    .crops .level-4 {
+      background: #d5c56d;
+    }
+
+    .crops .level-5 {
+      background: #dda34d;
+    }
+
+    /* =========================
+       MUSHROOM COLORS
+    ========================= */
+
+    .mushrooms .level-0 {
+      background: #e6e3dc;
+    }
+
+    .mushrooms .level-1 {
+      background: #d5cab8;
+    }
+
+    .mushrooms .level-2 {
+      background: #c3a989;
+    }
+
+    .mushrooms .level-3 {
+      background: #b8866e;
+    }
+
+    .mushrooms .level-4 {
+      background: #d47a77;
+    }
+
+    .mushrooms .level-5 {
+      background: #a84f5b;
+    }
+
+    /* =========================
+       FOREST COLORS
+    ========================= */
+
+    .forest .level-0 {
+      background: #e1e2db;
+    }
+
+    .forest .level-1 {
+      background: #c1d1b8;
+    }
+
+    .forest .level-2 {
+      background: #9ebc91;
+    }
+
+    .forest .level-3 {
+      background: #79a271;
+    }
+
+    .forest .level-4 {
+      background: #5f865e;
+    }
+
+    .forest .level-5 {
+      background: #3f6949;
+    }
+
+    /* =========================
+       LEGEND
+    ========================= */
+
+    .legend {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 7px;
+      margin-top: 20px;
+      color: #899287;
+      font-size: 12px;
+    }
+
+    .legend .day {
+      cursor: default;
+    }
+
+    .legend .day:hover {
+      transform: none;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 700px) {
+      .container {
+        padding: 35px 0;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      .search-box {
+        flex-direction: column;
+      }
+
+      input,
+      button {
+        width: 100%;
+      }
+
+      button {
+        padding: 14px;
+      }
+
+      .garden-card {
+        padding: 20px;
+      }
+
+      .stats {
+        gap: 25px;
+      }
+    }

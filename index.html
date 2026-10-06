@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Code Garden 🌱</title>
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+
+  <div class="container">
+
+    <header>
+      <h1>🌱 Code Garden</h1>
+
+      <div class="subtitle">
+        Turn your GitHub contributions into a garden.
+      </div>
+
+      <div class="search-box">
+        <input
+          id="username"
+          type="text"
+          placeholder="Enter GitHub username or profile URL..."
+        />
+
+        <button onclick="growGarden()">
+          Grow my garden 🌷
+        </button>
+      </div>
+
+      <div id="error" class="error"></div>
+    </header>
+
+
+    <!-- =========================
+         GARDEN
+    ========================== -->
+
+    <div id="gardenCard" class="garden-card hidden">
+
+      <!-- PROFILE -->
+
+      <div class="profile">
+        <img
+          id="avatar"
+          class="avatar"
+          src=""
+          alt="GitHub profile picture"
+        />
+
+        <div>
+          <h2 id="name"></h2>
+          <p id="handle"></p>
+        </div>
+      </div>
+
+
+      <!-- STATS -->
+
+      <div class="stats">
+
+        <div class="stat">
+          <strong id="total">0</strong>
+          <span>contributions</span>
+        </div>
+
+        <div class="stat">
+          <strong id="activeDays">0</strong>
+          <span>active days</span>
+        </div>
+
+        <div class="stat">
+          <strong id="bestDay">0</strong>
+          <span>biggest bloom</span>
+        </div>
+
+      </div>
+
+
+      <!-- PLANT SELECTOR -->
+
+      <div class="section-label">
+        Choose your garden
+      </div>
+
+      <div class="plant-options">
+
+        <button
+          class="plant-option active"
+          data-garden="flowers"
+          onclick="changeGarden('flowers')"
+        >
+          🌸 Flowers
+        </button>
+
+        <button
+          class="plant-option"
+          data-garden="succulents"
+          onclick="changeGarden('succulents')"
+        >
+          🌵 Succulents
+        </button>
+
+        <button
+          class="plant-option"
+          data-garden="crops"
+          onclick="changeGarden('crops')"
+        >
+          🥕 Crops
+        </button>
+
+        <button
+          class="plant-option"
+          data-garden="mushrooms"
+          onclick="changeGarden('mushrooms')"
+        >
+          🍄 Mushrooms
+        </button>
+
+        <button
+          class="plant-option"
+          data-garden="forest"
+          onclick="changeGarden('forest')"
+        >
+          🌳 Forest
+        </button>
+
+      </div>
+
+
+      <!-- CALENDAR -->
+
+      <div class="garden-wrapper">
+
+        <div class="calendar">
+
+          <div class="months">
+            <span>Jan</span>
+            <span>Feb</span>
+            <span>Mar</span>
+            <span>Apr</span>
+            <span>May</span>
+            <span>Jun</span>
+            <span>Jul</span>
+            <span>Aug</span>
+            <span>Sep</span>
+            <span>Oct</span>
+            <span>Nov</span>
+            <span>Dec</span>
+          </div>
+
+          <div class="calendar-body">
+
+            <div class="weekdays">
+              <div class="weekday"></div>
+              <div class="weekday">Mon</div>
+              <div class="weekday"></div>
+              <div class="weekday">Wed</div>
+              <div class="weekday"></div>
+              <div class="weekday">Fri</div>
+              <div class="weekday"></div>
+            </div>
+
+            <div id="garden" class="garden flowers"></div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- LEGEND -->
+
+      <div class="legend">
+
+        <span>Less</span>
+
+        <div class="day level-0"></div>
+        <div class="day level-1"></div>
+        <div class="day level-2"></div>
+        <div class="day level-3"></div>
+        <div class="day level-4"></div>
+        <div class="day level-5"></div>
+
+        <span>More</span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script src="js/app.js"></script>
+
+</body>
+</html>
