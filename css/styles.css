@@ -273,7 +273,10 @@
     }
 
     .flowers .level-1 {
-      background: #b8d8a8;
+      background-color: #b8d8a8;
+      background-image: url("../assets/flower/flower-1.png");
+      background-position: center;
+      background-size: cover;
     }
 
     .flowers .level-2 {
